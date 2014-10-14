@@ -3,7 +3,7 @@ examples
 
 Example Apps using the Chaski Framework
 
-This repository contains two examples of apps, which are using the Chaski framework to do Wi-Fi tethering. 
+This repository contains two apps that exemplify how to use the Chaski framework.  
 
 The first uses Client related functionalities and the second one Access Point related functionalities. 
 
