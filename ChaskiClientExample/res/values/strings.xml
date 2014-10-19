@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ChaskiClientExample</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="connect_to_ap">Connect to AP (with prefix *#%)</string>
+    <string name="disconnect">Disconnect from WiFi AP</string>
+    <string name="ip_label">IP: </string>
+    <string name="status_disconnected">Not Connected</string>
+    <string name="status_connected">Connected</string>
+    <string name="status_connecting">Connecting&#8230;</string>
+    <string name="status_disconnecting">Disconnecting&#8230;</string>
+    <string name="status_scanning">Scanning&#8230;</string>
+    <string name="status_label">Status: </string>
+    <string name="ssid_label">SSID: </string>
+    <string name="wifi_label">WiFi State: </string>
+    <string name="wifi_enabled">Enabled</string>
+    <string name="wifi_enabling">Enabling&#8230;</string>
+    <string name="wifi_disabled">Disabled</string>
+    <string name="wifi_disabling">Disabling&#8230;</string>
+    <string name="wifi_state_unknonwn">Unknown</string>
+
+</resources>

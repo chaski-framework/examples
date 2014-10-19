@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ChaskiApExample</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="status_label">Status: </string>
+    <string name="status_disabled">Disabled</string>
+    <string name="label_enable">Access Point ON</string>
+    <string name="label_disable">Access Point OFF</string>
+    <string name="status_enabled">Enabled</string>
+    <string name="status_enabling">Enabling/Updating&#8230;</string>
+    <string name="status_disabling">Disabling&#8230;</string>
+    <string name="update_label">Update SSID</string>
+    <string name="ssid">SSID: </string>
+    <string name="numberOfClients">No. of Clients: </string>
+    <string name="ipAddressesOfClients">IPs of Clients: </string>
+
+</resources>

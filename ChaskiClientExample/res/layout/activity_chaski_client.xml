@@ -1,0 +1,114 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context="chaski.client.example.ChaskiClientActivity" >
+     
+     
+    <Button
+        android:id="@+id/bConnect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/connect_to_ap" />
+
+    <Button
+        android:id="@+id/bDisconnect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="@string/disconnect" />
+    
+    <LinearLayout android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal"
+     android:padding="10dp" >
+        
+        <TextView 
+        android:id="@+id/tvWiFiLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/wifi_label"
+        android:layout_weight="0.5"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView 
+        android:id="@+id/tvWiFiState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+    
+     <LinearLayout
+       android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal"
+     android:padding="10dp" >
+     
+         <TextView 
+        android:id="@+id/tvConnectionStatusLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/status_label"
+        android:layout_weight="0.5"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView 
+        android:id="@+id/tvConnectionStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/status_disconnected"
+        android:layout_weight="0.5"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal"
+     android:padding="10dp" >
+        
+        <TextView 
+        android:id="@+id/tvSSIDLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ssid_label"
+        android:layout_weight="0.5"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView 
+        android:id="@+id/tvSSID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal"
+     android:padding="10dp" >
+        
+        <TextView 
+        android:id="@+id/tvIpLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ip_label"
+        android:layout_weight="0.5"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView 
+        android:id="@+id/tvIp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+</LinearLayout>
+
+

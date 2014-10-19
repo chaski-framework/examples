@@ -1,0 +1,134 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="chaski.ap.example.ChaskiApActivity" >
+
+ <LinearLayout
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:orientation="vertical"
+     android:padding="5dp" >
+
+      <ToggleButton
+          android:id="@+id/toggleButton"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_weight="0.5"
+          android:enabled="false"
+          android:textOn="@string/label_enable"
+          android:textOff="@string/label_disable"
+          android:checked="false" 
+          android:onClick="onToggleClicked"/>
+
+     <Button
+         android:id="@+id/bUpdate"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_weight="0.5"
+         android:enabled="false"
+         android:text="@string/update_label" />
+
+ </LinearLayout>
+ 
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:padding="10dp" >
+      
+      <TextView
+          android:id="@+id/tvApsStatusLabel"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="0.5"
+          android:text="@string/status_label"
+          android:textAppearance="?android:attr/textAppearanceMedium" />
+      
+       <TextView
+           android:id="@+id/tvApStatus"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_weight="0.5"
+           android:text="@string/status_disabled"
+           android:textAppearance="?android:attr/textAppearanceMedium" />
+      
+      </LinearLayout>
+ 
+ 
+  <LinearLayout
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal"
+     android:padding="10dp" >
+      
+      <TextView
+          android:id="@+id/tvApSSIDLabel"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="0.5"
+          android:text="@string/ssid"
+          android:textAppearance="?android:attr/textAppearanceMedium" />
+      
+      
+      <TextView
+          android:id="@+id/tvApSSID"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="0.5"
+          android:textAppearance="?android:attr/textAppearanceMedium" />
+      
+      </LinearLayout>
+ 
+      <LinearLayout
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal" 
+     android:padding="10dp">
+      
+      
+ <TextView
+     android:id="@+id/tvNumberofClientsLabel"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_weight="0.5"
+     android:text="@string/numberOfClients"
+     android:textAppearance="?android:attr/textAppearanceMedium" />
+
+<TextView
+     android:id="@+id/tvNumberofClients"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_weight="0.5"
+     android:textAppearance="?android:attr/textAppearanceMedium" />
+     
+ 
+ </LinearLayout>
+ 
+ <LinearLayout
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal" 
+     android:padding="10dp">
+
+     
+ <TextView
+     android:id="@+id/tvIPaddressesOfCLientsLabel"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_weight="0.5"
+     android:text="@string/ipAddressesOfClients"
+     android:textAppearance="?android:attr/textAppearanceMedium" />
+     
+ <TextView
+     android:id="@+id/tvIPaddressesOfCLients"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_weight="0.5"
+     android:text=""
+     android:textAppearance="?android:attr/textAppearanceMedium" />
+ 
+     </LinearLayout>
+ 
+</LinearLayout>
