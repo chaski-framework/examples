@@ -220,6 +220,9 @@ public class ChaskiApActivity extends Activity {
 				mToggleButtonAp.setChecked(true);
 				mToggleButtonAp.setEnabled(true);
 				mButtonUpdate.setEnabled(true);
+				
+				String ip = mChaskiService.getLocalIpAdress();
+				Log.d(TAG, "IP is " + ip);
 
 			} catch (RemoteException e) {
 				// TODO Auto-generated catch block

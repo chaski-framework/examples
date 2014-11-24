@@ -320,6 +320,12 @@ public class ChaskiClientActivity extends Activity {
 	    			    		
 			    mButtonDisconnect.setEnabled(true);
 			    mButtonConnect.setEnabled(false);
+			    
+			    String ipViaMethod = mChaskiService.getLocalIpAdress();
+		    	
+		    	boolean sameIPs = ip.equals(ipViaMethod);
+		    	
+		    	Log.d(TAG, "Same IPs? " + sameIPs);
 	    		
 	    	}
 	    	
