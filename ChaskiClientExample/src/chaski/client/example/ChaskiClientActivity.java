@@ -325,7 +325,7 @@ public class ChaskiClientActivity extends Activity {
 		    	
 		    	boolean sameIPs = ip.equals(ipViaMethod);
 		    	
-		    	Log.d(TAG, "Same IPs? " + sameIPs);
+		    	Log.d(TAG, "Same IP addresses? " + sameIPs);
 	    		
 	    	}
 	    	
