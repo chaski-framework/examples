@@ -7,6 +7,8 @@
 package chaski.ap.example;
 
 import java.util.Random;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -37,6 +39,8 @@ public class ChaskiApActivity extends Activity {
 	private static final String PREFIX = "*#%Chaski";
 
 	private static final String NOT_APPLICABLE = "N/A";
+	
+	private ScheduledThreadPoolExecutor stpeTriggerClients;
 
 	final BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
 
@@ -49,7 +53,9 @@ public class ChaskiApActivity extends Activity {
 						ChaskiConstants.AP_STATE,
 						ChaskiConstants.CONNECTION_ERROR_STATE);
 
-				handleApStateChanged(currentStateAp);
+				if(apStatesInitialized){
+					handleApStateChanged(currentStateAp);
+				}
 			}
 
 			// Getting the number of connected clients and their IP
@@ -94,6 +100,8 @@ public class ChaskiApActivity extends Activity {
 			Log.d(TAG, "Chaski service has been bound");
 
 			mChaskiService = ((ChaskiService.MyBinder) binder).getService();
+			
+			initApStates();
 
 			mToggleButtonAp.setEnabled(true);
 		}
@@ -110,6 +118,12 @@ public class ChaskiApActivity extends Activity {
 		}
 
 	};
+
+	private int mWifiApDisabled;
+
+	private int mWifiApEnabled;
+
+	private boolean apStatesInitialized;
 
 	protected void handleClientsStateActionChanged(String[] clients) {
 
@@ -148,11 +162,45 @@ public class ChaskiApActivity extends Activity {
 		// The following code checks the Chaski service is running or not! if
 		// not, it starts the service
 		initChaskiService();
-
+		
 		registerReceivers();
 
-		initGUI();
+		initGUI();		
 
+	}
+	
+	private void startTriggeringOfClients(){
+		stpeTriggerClients = new ScheduledThreadPoolExecutor(1);
+		
+		stpeTriggerClients.scheduleAtFixedRate(new Runnable() {
+			
+			@Override
+			public void run() {
+				int r = new Random().nextInt();
+				
+				mChaskiService.triggerIpAddressesOfValidClients("trigger_"+ r);
+				
+			}
+		}, 0, 1000, TimeUnit.MILLISECONDS);
+		
+	}
+	
+	private void stopTriggeringOfClients(){
+		stpeTriggerClients.shutdownNow();		
+	}
+
+	private void initApStates() {
+		try {
+			mWifiApDisabled = mChaskiService.getWifiApStateDisabled();
+			
+			mWifiApEnabled = mChaskiService.getWifiApStateEnabled();
+			
+			apStatesInitialized = true;
+			
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private void initChaskiService() {
@@ -181,6 +229,8 @@ public class ChaskiApActivity extends Activity {
 
 		try {
 			if (mChaskiService.isApEnabled()) {
+				
+				stopTriggeringOfClients();
 				mChaskiService.disableAp();
 			}
 
@@ -198,7 +248,7 @@ public class ChaskiApActivity extends Activity {
 
 	protected void handleApStateChanged(int currentApState) {
 
-		if (currentApState == ChaskiConstants.AP_STATE_ENABLED) {
+		if (currentApState == mWifiApEnabled) {
 
 			Log.d(TAG, "AP is enabled");
 
@@ -210,7 +260,9 @@ public class ChaskiApActivity extends Activity {
 						.getWifiApConfiguration();
 
 				String ssid = wifiConfig.SSID;
-
+				
+				startTriggeringOfClients();
+				
 				mTextViewApSSID.setText(ssid);
 
 				mTextViewNumberOfClients.setText("0");
@@ -231,7 +283,7 @@ public class ChaskiApActivity extends Activity {
 
 		}
 
-		if (currentApState == ChaskiConstants.AP_STATE_DISABLED) {
+		if (currentApState == mWifiApDisabled) {
 
 			Log.d(TAG, "AP is disabled");
 
@@ -341,6 +393,7 @@ public class ChaskiApActivity extends Activity {
 			// Disable the AP
 
 			try {
+				stopTriggeringOfClients();
 				mChaskiService.disableAp();
 				mToggleButtonAp.setEnabled(false);
 				mButtonUpdate.setEnabled(false);
